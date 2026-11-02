@@ -31,7 +31,7 @@ while True:
     if not success:
         break
 
-    hands, img = detector.findHands(img)
+    hands, img = detector.findHands(img,draw=True,flipType=False)
 
     ges = "NO HAND DETECTED"
     if hands:
