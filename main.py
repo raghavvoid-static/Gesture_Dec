@@ -31,8 +31,8 @@ while True:
     if not success:
         break
 
-    hands, img = detector.findHands(img,draw=True,flipType=False)
-
+    hands, img = detector.findHands(img,draw=True,flipType=True)
+    
     ges = "NO HAND DETECTED"
     if hands:
         hand = hands[0]
@@ -40,7 +40,7 @@ while True:
         print("Finger states:", fingers)
         ges = identify_ges(fingers)
        
-    cv2.putText(img, ges, (30, 50), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 0), 2)
+    cv2.putText(img, ges, (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 255), 2)
     
     cv2.imshow("GestureLens", img)
     if cv2.waitKey(10) == ord('q'):
